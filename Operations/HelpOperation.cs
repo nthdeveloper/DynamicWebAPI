@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DynamicWebAPI.Operations
 {
-    public class HelpOperation : BaseOperation
+    public class HelpOperation : OperationBase
     {
         private readonly IEnumerable<Lazy<IOperation>> allOperations;
 

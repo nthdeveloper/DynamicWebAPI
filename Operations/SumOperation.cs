@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DynamicWebAPI.Operations
 {
-    public class SumOperation : BaseOperation
+    public class SumOperation : OperationBase
     {
         public SumOperation()
             : base("sum", "Returns the sum of the given two numbers.", typeof(SumOperationParameters))

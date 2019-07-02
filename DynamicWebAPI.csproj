@@ -116,7 +116,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Operations\BaseOperation.cs" />
+    <Compile Include="Operations\OperationBase.cs" />
     <Compile Include="Operations\HelpOperation.cs" />
     <Compile Include="Operations\SumOperation.cs" />
     <Compile Include="Operations\IOperation.cs" />

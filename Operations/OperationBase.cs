@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DynamicWebAPI.Operations
 {
-    public abstract class BaseOperation : IOperation
+    public abstract class OperationBase : IOperation
     {
         public string Name { get; private set; }
 
@@ -13,7 +13,7 @@ namespace DynamicWebAPI.Operations
 
         public Type ParameterClassType { get; private set; }
 
-        public BaseOperation(string name, string description, Type parameterClassType)
+        public OperationBase(string name, string description, Type parameterClassType)
         {
             this.Name = name;
             this.Description = description;
