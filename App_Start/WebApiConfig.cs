@@ -20,7 +20,9 @@ namespace DynamicWebAPI
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             //Register all operations
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(t=> t.IsAssignableTo<IOperation>()).As<IOperation>();
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                .Where(t=> t.IsAssignableTo<IOperation>())
+                .As<IOperation>();
 
             var container = builder.Build();
 

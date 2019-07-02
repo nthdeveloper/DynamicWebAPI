@@ -21,6 +21,7 @@ namespace DynamicWebAPI.Controllers
             _supportedOperations = new List<IOperation>(supportedOperations);
         }
 
+        //Single action that gets the operation name and reads the operation paramters as JSON from request body
         [HttpPost]
         public async Task<IHttpActionResult> Process(string operationName)
         {
@@ -36,11 +37,13 @@ namespace DynamicWebAPI.Controllers
 
             try
             {
+                //Parse the JSON data in the request body t construct operation's parameter object
                 if (operation.ParameterClassType != null)
                     operationParams = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonBody, operation.ParameterClassType);
 
                 object result = operation.Execute(operationParams);
 
+                //Return the result value as JSON to the caller
                 if (result != null)
                     return Json(result);
             }
@@ -49,6 +52,7 @@ namespace DynamicWebAPI.Controllers
                 return InternalServerError(ex);
             }
 
+            //Return Ok if the operation has no return value
             return Ok();
         }
     }
